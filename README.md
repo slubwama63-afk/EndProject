@@ -2,50 +2,50 @@
 End project-Book explorer
 Beskrivning
 
-Book Explorer är en webbaserad applikation där användare kan söka efter böcker via Open Library API. Resultaten visas som dynamiska kort med bokomslag, titel och författare. Kort som saknar omslag visas med en placeholder-bild. Applikationen är responsiv och har hover-effekter för en modern användarupplevelse.
+Om appen
 
-Funktioner
+Hej!
 
-Sök på boktitel eller författare.
+Det här är min Book Explorer, en webbsida där du kan söka efter böcker via Open Library API. Resultaten visas som kort med bokomslag, titel och författare. Om boken inte har något omslag får du en placeholder-bild istället. Allt är gjort för att det ska vara snyggt och enkelt att använda, även på mobilen.
 
-Dynamisk rendering av bokkort med omslag, titel och författare.
+Vad man kan göra:
 
-Placeholder-bild för böcker utan omslag.
+- Söka efter boktitel eller författare.
 
-Enkel pagination för att navigera mellan sidor.
+- Se bokomslag, titel och författare direkt i korten.
 
-Hover-effekter på bokkort för bättre interaktivitet.
+- Bläddra mellan sidor om det finns fler än 10 resultat.
 
-Felhantering vid problem med API-anrop.
+- Kort med hover-effekter för lite extra liv.
 
-Tekniker
+- Får ett felmeddelande om något går fel med API-anropet.
 
-HTML5 för semantisk struktur.
+Tekniker jag använde:
 
-CSS3 (Flexbox/Grid) för responsiv layout och moderna UI-effekter.
+- HTML5 – för strukturen.
 
-JavaScript:
+- CSS3 – flexbox och grid för layout, plus lite hover-animationer.
 
-fetch för att hämta data från Open Library API.
+- JavaScript= fetch för att hämta data från Open Library.
 
-Dynamisk skapande av DOM-element för bokkort.
+- Skapar bokkorten dynamiskt.
 
-Event listeners för sökning och pagination.
+- Hanterar sökning och pagination.
 
-Installation / Användning
+Hur man kör appen:
 
-Klona eller ladda ner repot.
+1. Ladda ner repot eller klona det.
 
-Öppna index.html i valfri webbläsare.
+2. Öppna index.html i valfri webbläsare.
 
-Skriv in en boktitel eller författare i sökfältet och klicka på “Sök”.
+3. Skriv in en titel eller författare i sökfältet och klicka “Sök”.
 
-Bläddra mellan sidor med pagination-knapparna om fler än 10 träffar finns.
+4. Bläddra mellan sidorna om det behövs.
 
-Kommentarer i koden
+Kommentarer i koden:
 
-JavaScript är kortfattat kommenterat för tydlighet.
+- JS är kort kommenterad för att förstå vad som händer.
 
-CSS innehåller kommentarer för sektioner (header, sökfält, kort, pagination, footer).
+- CSS har kommentarer för header, sökfält, korten, pagination och footer.
 
-Alla funktioner är byggda för enkel förståelse och underhåll.
+- Allt är gjort för att vara lätt att läsa och ändra om man vill leka vidare med det.
