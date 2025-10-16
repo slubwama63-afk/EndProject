@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Explorer</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!-- Enkel rubrik och sökfält -->
+<header>
+  <h1>📚 Book Explorer</h1>
+  <form id="searchForm">
+    <input type="text" id="q" placeholder="Sök efter titel eller författare..." required>
+    <button type="submit">Sök</button>
+  </form>
+</header>
 
+<!-- Här visas resultaten -->
+<main>
+  <section id="results"></section>
+  <div id="pagination"></div>
+</main>
+
+<footer>
+  <p>Data från <a href="https://openlibrary.org" target="_blank">Open Library</a></p>
+</footer>
+
+<script src="js/app.js"></script>
 </body>
 </html>
+
