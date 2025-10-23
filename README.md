@@ -46,3 +46,7 @@ Hur man kör applikationen:
 Kommentarer:
 Samtliga centrala delar av koden är kommenterade direkt i app.js för att förklara flödet och logiken i programmet.
 Även CSS innehåller kommentarer som delar upp koden i sektioner (header, sökfält, bokkort, pagination och footer), vilket underlättar läsbarhet och vidareutveckling.
+
+Reflektion:
+Detta projekt har bidragit till en fördjupad förståelse för hur asynkron JavaScript kan användas för att hämta och bearbeta data från externa API:er. Arbetet har även gett praktisk erfarenhet av att bygga responsiva gränssnitt och hantera olika typer av dataflöden och fel.
+Genom projektet har jag utvecklat min förmåga att kombinera HTML, CSS och JavaScript för att skapa en komplett, användarvänlig och strukturerad webbapplikation.
