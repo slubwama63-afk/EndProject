@@ -1,51 +1,48 @@
-# EndProject
-End project-Book explorer
-Beskrivning
+EndProject – Book Explorer
 
-Om appen
+Inledning:
+Detta projekt utgör slutuppgiften i kursen och bygger vidare på samma kodstil och struktur som tidigare uppgifter. Syftet är att upprätthålla en enhetlig och tydlig kodbas genom hela kursen samt att utveckla en mer omfattande applikation som integrerar flera centrala moment i webbutveckling.
 
-Hej!
+Syfte:
+Syftet med projektet är att utveckla en webbapplikation som hämtar, bearbetar och presenterar data från ett externt API med hjälp av fetch och async/await. Projektet syftar även till att fördjupa förståelsen för DOM-manipulation, responsiv design och felhantering, samt att träna på att strukturera kod på ett effektivt och läsbart sätt.
 
-Det här är min Book Explorer, en webbsida där du kan söka efter böcker via Open Library API. Resultaten visas som kort med bokomslag, titel och författare. Om boken inte har något omslag får du en placeholder-bild istället. Allt är gjort för att det ska vara snyggt och enkelt att använda, även på mobilen.
+Beskrivning:
+Applikationen Book Explorer använder Open Library API för att möjliggöra sökning efter böcker baserat på titel eller författare. Resultaten visas som dynamiskt genererade kort på webbsidan, där varje kort innehåller bokomslag, titel och författare. Om ett omslag saknas visas en ersättningsbild (placeholder). Applikationen är designad för att vara enkel att använda och fullt responsiv på både dator och mobil.
 
-Vad man kan göra:
+Så här fungerar koden:
 
-- Söka efter boktitel eller författare.
+- Data hämtas från Open Library API med hjälp av fetch, och svaret omvandlas till JSON.
 
-- Se bokomslag, titel och författare direkt i korten.
+- När datan är tillgänglig skapas bokkorten dynamiskt i JavaScript genom DOM-manipulation.
 
-- Bläddra mellan sidor om det finns fler än 10 resultat.
+- Varje bokkort innehåller information om titel, författare och omslag.
 
-- Kort med hover-effekter för lite extra liv.
+- Om fler än tio resultat hittas aktiveras paginering, vilket gör det möjligt att bläddra mellan resultatsidor.
 
-- Får ett felmeddelande om något går fel med API-anropet.
+- Vid fel i API-anropet visas ett tydligt felmeddelande till användaren.
 
-Tekniker jag använde:
+- Layouten utformas med CSS flexbox och grid, samt kompletteras med hover-effekter för interaktivitet och användarupplevelse.
 
-- HTML5 – för strukturen.
+- Som utökad funktionalitet (stretch goals) har jag även:
 
-- CSS3 – flexbox och grid för layout, plus lite hover-animationer.
+- Implementerat ersättningsbild vid avsaknad av bokomslag.
 
-- JavaScript= fetch för att hämta data från Open Library.
+- Säkerställt responsiv design för olika skärmstorlekar.
 
-- Skapar bokkorten dynamiskt.
+- Lagt till tydlig hantering av felmeddelanden vid ogiltiga sökningar eller nätverksfel.
 
-- Hanterar sökning och pagination.
+Hur man kör applikationen:
 
-Hur man kör appen:
+1. Ladda ner eller klona projektet från GitHub-repositoriet.
 
-1. Ladda ner repot eller klona det.
+2. Öppna filen index.html i valfri modern webbläsare (t.ex. Chrome, Edge eller Firefox).
 
-2. Öppna index.html i valfri webbläsare.
+3. Skriv in en boktitel eller författare i sökfältet och klicka på knappen ”Sök”.
 
-3. Skriv in en titel eller författare i sökfältet och klicka “Sök”.
+4. Resultaten visas som bokkort. Om fler än tio böcker hittas kan du bläddra mellan sidor med hjälp av pagineringen.
 
-4. Bläddra mellan sidorna om det behövs.
+5. Vid eventuella fel i API-anropet visas ett meddelande på skärmen.
 
-Kommentarer i koden:
-
-- JS är kort kommenterad för att förstå vad som händer.
-
-- CSS har kommentarer för header, sökfält, korten, pagination och footer.
-
-- Allt är gjort för att vara lätt att läsa och ändra om man vill leka vidare med det.
+Kommentarer:
+Samtliga centrala delar av koden är kommenterade direkt i app.js för att förklara flödet och logiken i programmet.
+Även CSS innehåller kommentarer som delar upp koden i sektioner (header, sökfält, bokkort, pagination och footer), vilket underlättar läsbarhet och vidareutveckling.
