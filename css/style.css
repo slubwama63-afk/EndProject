@@ -159,7 +159,7 @@ main {
   color: #6a2c79;
 }
 
-/* ====== Footer ====== */
+/*  Footer  */
 footer {
   background-color: #e398cc;
   color: white;
@@ -167,7 +167,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ===== Modal för bokinfo ===== */
+/*  Modal för bokinfo */
 .modal {
   position: fixed;
   top: 0;
@@ -233,7 +233,7 @@ footer {
   color: #9c1e76;
 }
 
-/* ===== Extra grid/flex för modal om du vill ha omslagsbild ===== */
+/* Extra grid/flex för modal om du vill ha omslagsbild */
 .modal-content img {
   width: 100%;
   height: auto;
@@ -241,3 +241,4 @@ footer {
   margin-bottom: 12px;
   object-fit: cover;
 }
+

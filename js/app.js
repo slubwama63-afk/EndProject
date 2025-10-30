@@ -18,7 +18,7 @@ let lastQuery = '';
 
 console.log('app.js laddad');
 
-// 🔹 Modal-stängning
+//  Modal-stängning
 closeModal.addEventListener('click', () => {
   bookModal.style.display = 'none';
 });
@@ -81,7 +81,7 @@ function renderBooks(docs, numFound) {
     card.append(img, title, author);
     grid.appendChild(card);
 
-    // 🔹 Click-event för modal
+    //  Click-event för modal
     card.addEventListener('click', () => {
       modalTitle.textContent = doc.title || 'Okänd titel';
       modalAuthor.textContent = (doc.author_name || ['Okänd']).join(', ');
@@ -122,7 +122,7 @@ async function doSearch(q) {
     const data = await fetchBooks(q, limit, offset);
     lastQuery = q;
 
-    // 🔹 Sortera baserat på dropdown
+    // Sortera baserat på dropdown
     const order = sortOrder.value; // "newest" eller "oldest"
     const sortedDocs = data.docs.sort((a, b) => {
       const yearA = a.first_publish_year || 0;
