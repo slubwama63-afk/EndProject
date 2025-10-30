@@ -29,6 +29,12 @@ Om fler än tio resultat hittas aktiveras paginering, vilket gör det möjligt a
 Vid fel i API-anropet visas ett tydligt felmeddelande till användaren.
 
 Layouten utformas med CSS flexbox och grid, samt kompletteras med hover-effekter för interaktivitet och användarupplevelse.
+### Sortering och bokdetaljer
+
+Applikationen har nu en dropdown för sortering där användaren kan välja att visa böcker nyast först eller äldst först. Sorteringen sker direkt på resultaten från Open Library och uppdateras varje gång en ny sökning görs.  
+
+Detta gör det enkelt för användaren att snabbt få relevant information om varje bok utan att lämna sidan.
+
 
 Stretch goals / Utökad funktionalitet
 
