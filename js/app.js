@@ -1,7 +1,7 @@
 // Hämtar viktiga element
 const form = document.querySelector('#searchForm');
 const input = document.querySelector('#q');
-const categorySelect = document.querySelector('#category'); // 🔹 nytt element
+const sortOrder = document.querySelector('#sortOrder'); // Nytt element för sortering
 const resultsEl = document.querySelector('#results');
 const paginationEl = document.querySelector('#pagination');
 
@@ -65,7 +65,6 @@ function renderBooks(docs, numFound) {
   grid.className = 'grid';
 
   docs.forEach(doc => {
-    console.log('Skapar kort för:', doc.title);
     const card = document.createElement('article');
     card.className = 'card';
 
@@ -84,7 +83,6 @@ function renderBooks(docs, numFound) {
 
     // 🔹 Click-event för modal
     card.addEventListener('click', () => {
-      console.log('Bokkort klickat:', doc.title);
       modalTitle.textContent = doc.title || 'Okänd titel';
       modalAuthor.textContent = (doc.author_name || ['Okänd']).join(', ');
       modalYear.textContent = doc.first_publish_year || 'Okänt';
@@ -124,17 +122,15 @@ async function doSearch(q) {
     const data = await fetchBooks(q, limit, offset);
     lastQuery = q;
 
-    // 🔹 Filtrera resultat baserat på vald kategori
-    const selectedCategory = categorySelect.value;
-    let filteredDocs = data.docs;
-    if (selectedCategory) {
-      filteredDocs = data.docs.filter(doc =>
-        doc.subject && doc.subject.includes(selectedCategory)
-      );
-      console.log(`Filtrerar på kategori: ${selectedCategory}, antal efter filtrering: ${filteredDocs.length}`);
-    }
+    // 🔹 Sortera baserat på dropdown
+    const order = sortOrder.value; // "newest" eller "oldest"
+    const sortedDocs = data.docs.sort((a, b) => {
+      const yearA = a.first_publish_year || 0;
+      const yearB = b.first_publish_year || 0;
+      return order === 'newest' ? yearB - yearA : yearA - yearB;
+    });
 
-    renderBooks(filteredDocs, data.numFound);
+    renderBooks(sortedDocs, data.numFound);
   } catch (err) {
     resultsEl.innerHTML = `<p>Fel: ${err.message}</p>`;
     console.error('Fel i doSearch:', err);
@@ -147,10 +143,10 @@ form.addEventListener('submit', e => {
   offset = 0;
   const q = input.value.trim();
   if (q) {
-    console.log('Form submit med sökord:', q);
     doSearch(q);
   }
 });
+
 
 
 
