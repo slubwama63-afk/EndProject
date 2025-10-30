@@ -1,6 +1,7 @@
 // Hämtar viktiga element
 const form = document.querySelector('#searchForm');
 const input = document.querySelector('#q');
+const categorySelect = document.querySelector('#category'); // 🔹 nytt element
 const resultsEl = document.querySelector('#results');
 const paginationEl = document.querySelector('#pagination');
 
@@ -22,7 +23,7 @@ function coverUrlFromDoc(doc) {
 }
 
 // Hämtar böcker via API
-async function fetchBooks(q, limit=10, offset=0) {
+async function fetchBooks(q, limit = 10, offset = 0) {
   console.log('fetchBooks körs med sökord:', q);
   const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(q)}&limit=${limit}&offset=${offset}`;
   const res = await fetch(url);
@@ -71,9 +72,9 @@ function renderBooks(docs, numFound) {
   const totalPages = Math.ceil(numFound / limit);
 
   paginationEl.innerHTML = `
-    <button id="prev" ${offset===0?'disabled':''}>Prev</button>
+    <button id="prev" ${offset === 0 ? 'disabled' : ''}>Prev</button>
     <span>Sida ${currentPage} av ${totalPages}</span>
-    <button id="next" ${offset+limit>=numFound?'disabled':''}>Next</button>
+    <button id="next" ${offset + limit >= numFound ? 'disabled' : ''}>Next</button>
   `;
 
   document.querySelector('#prev').addEventListener('click', () => {
@@ -94,7 +95,18 @@ async function doSearch(q) {
     resultsEl.innerHTML = '<p>Laddar...</p>';
     const data = await fetchBooks(q, limit, offset);
     lastQuery = q;
-    renderBooks(data.docs, data.numFound);
+
+    // 🔹 Filtrera resultat baserat på vald kategori
+    const selectedCategory = categorySelect.value;
+    let filteredDocs = data.docs;
+    if (selectedCategory) {
+      filteredDocs = data.docs.filter(doc =>
+        doc.subject && doc.subject.includes(selectedCategory)
+      );
+      console.log(`Filtrerar på kategori: ${selectedCategory}, antal efter filtrering: ${filteredDocs.length}`);
+    }
+
+    renderBooks(filteredDocs, data.numFound);
   } catch (err) {
     resultsEl.innerHTML = `<p>Fel: ${err.message}</p>`;
     console.error('Fel i doSearch:', err);
