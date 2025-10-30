@@ -5,11 +5,29 @@ const categorySelect = document.querySelector('#category'); // 🔹 nytt element
 const resultsEl = document.querySelector('#results');
 const paginationEl = document.querySelector('#pagination');
 
+const bookModal = document.querySelector('#bookModal');
+const closeModal = document.querySelector('#closeModal');
+const modalTitle = document.querySelector('#modalTitle');
+const modalAuthor = document.querySelector('#modalAuthor');
+const modalYear = document.querySelector('#modalYear');
+const modalSubjects = document.querySelector('#modalSubjects');
+
 let limit = 10;
 let offset = 0;
 let lastQuery = '';
 
 console.log('app.js laddad');
+
+// 🔹 Modal-stängning
+closeModal.addEventListener('click', () => {
+  bookModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === bookModal) {
+    bookModal.style.display = 'none';
+  }
+});
 
 // Skapar omslags-URL utifrån bokdata
 function coverUrlFromDoc(doc) {
@@ -63,6 +81,16 @@ function renderBooks(docs, numFound) {
 
     card.append(img, title, author);
     grid.appendChild(card);
+
+    // 🔹 Click-event för modal
+    card.addEventListener('click', () => {
+      console.log('Bokkort klickat:', doc.title);
+      modalTitle.textContent = doc.title || 'Okänd titel';
+      modalAuthor.textContent = (doc.author_name || ['Okänd']).join(', ');
+      modalYear.textContent = doc.first_publish_year || 'Okänt';
+      modalSubjects.textContent = (doc.subject || ['Okända kategorier']).join(', ');
+      bookModal.style.display = 'flex';
+    });
   });
 
   resultsEl.appendChild(grid);
@@ -123,6 +151,7 @@ form.addEventListener('submit', e => {
     doSearch(q);
   }
 });
+
 
 
 
